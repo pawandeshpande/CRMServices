@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("p").click(function(){
+        alert("The paragraph was clicked.");
+    });
+});
+
+
+$(document).ready(function(){
+    $("#btnFade").click(function(){
+        $("#div1").fadeIn();
+        $("#div2").fadeIn("slow");
+        $("#div3").fadeIn(3000);
+    });
+});
+
+var jsondata = {'username':'TestAdmin','password':'P@ssword1','language':'en','action':'Y29tLmNybXNlcnZpY2UuYWN0aW9uLkxvZ2luQWN0aW9u'};
+$(document).ready(function(){
+	$("button").click(function(){ 
+		$.ajax({
+			type : 'POST',
+    		dataType : 'json',
+    		data: { crmdata : JSON.stringify(jsondata)},
+    		url : '/CRMServices/service.svc',
+    		timeout : 5000,
+    		success : function(data, textStatus) {
+	    		$("#responsediv").text=data;	
+            			}		})
+	})
+});
+
+</script>
+</head>
+<body>
+
+<button >Send an HTTP POST request to a page and get the result back</button>
+<div id="responsediv">Response will be shown here!</div>
+<div id="errordiv>">Error text will be shown here!</div>
+
+
+<p>Click on this paragraph.</p>
+
+<button id="btnFade">Click to fade in boxes</button><br><br>
+<div id="div1" style="width:80px;height:80px;display:none;background-color:red;"></div><br>
+<div id="div2" style="width:80px;height:80px;display:none;background-color:green;"></div><br>
+<div id="div3" style="width:80px;height:80px;display:none;background-color:blue;"></div>
+
+
+</body>
+</html>

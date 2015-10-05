@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="1.0">
+	<persistence-unit name="CoreCRMServiceProvider" transaction-type="JTA">
+		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+		<jta-data-source>java:openejb/Resource/CoreCRMServiceProviderDS</jta-data-source>
+
+<non-jta-data-source>java:openejb/Resource/CoreCRMServiceProviderUnmanaged</non-jta-data-source>
+<mapping-file>META-INF/CRMUserQueries.xml</mapping-file>
+<class>com.crmservice.persistance.CrmAccount</class>
+<class>com.crmservice.persistance.CrmAcctContact</class>
+<class>com.crmservice.persistance.CrmAcctOpty</class>
+<class>com.crmservice.persistance.CrmCompany</class>
+<class>com.crmservice.persistance.CrmContact</class>
+<class>com.crmservice.persistance.CrmOpportunity</class>
+<class>com.crmservice.persistance.CrmOptyContact</class>
+<class>com.crmservice.persistance.CrmRole</class>
+<class>com.crmservice.persistance.CrmUser</class>
+    <properties>
+      <property name="eclipselink.weaving" value="static"/>
+      
+      <property name="eclipselink.logging.level.sql" value="FINEST"/>
+      <property name="eclipselink.logging.level.cache" value="FINEST"/>
+
+      <!--<property name="javax.persistence.jtaDataSource"
+                value="java:/app/jdbc/jdbc/mysqlconnDS"/>-->
+      <property name="eclipselink.target-database" value="MySQL"/>
+      <!--  <property name="javax.persistence.jtaDataSource"
+                value="jdbc/CRMCOREDB"/> -->
+<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/CRMCOREDB" />
+              <property name="javax.persistence.jdbc.user" value="TestCRMCore" />
+            <property name="javax.persistence.jdbc.password" value="TestCRMCore" />
+      
+    </properties>
+  
+<!-- Named JPQL queries per entity, but any other organization is possible  -->
+		
+       
+
+	</persistence-unit>
+
+
+</persistence>

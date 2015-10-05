@@ -1,0 +1,3 @@
+curl --data "username=TestAdmin1&password=P@ssword1&language=en&action=Y29tLmNybXNlcnZpY2UuYWN0aW9uLkxvZ2luQWN0aW9u" http://pdsrv.com/CRMServices/service.svc?cLogin
+curl -H "Content-Type: application/json" -X POST -d 'CRMData={"username":"TestAdmin","password":"P@ssword1","language":"en","action":"Y29tLmNybXNlcnZpY2UuYWN0aW9uLkxvZ2luQWN0aW9u"}' http://localhost:8080/CRMServices/service.svc?cLogin
+curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X POST -d "{'username':'TestAdmin','password':'P@ssword1','language':'en','action':'Y29tLmNybXNlcnZpY2UuYWN0aW9uLkxvZ2luQWN0aW9u'}" http://localhost:8080/CRMServices

@@ -1,0 +1,1 @@
+curl --data "username=TestAdmin1&password=P@ssword1&language=en&action=Y29tLmNybXNlcnZpY2UuYWN0aW9uLkxvZ2luQWN0aW9u" http://pdsrv.com/CRMServices/service.svc?cLogin

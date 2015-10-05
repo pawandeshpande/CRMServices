@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>CRM Services</display-name>
+  <filter>
+    <description>Expense Tracker session filter for every request</description>
+    <display-name>CRM Service Filter</display-name>
+    <filter-name>CRMServiceFilter</filter-name>
+    <filter-class>com.crmservice.core.CRMServiceFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>CRMServiceFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+    <dispatcher>FORWARD</dispatcher>
+    <dispatcher>REQUEST</dispatcher>
+  </filter-mapping>
+  <welcome-file-list>
+    <welcome-file>Login.jsp</welcome-file>
+  </welcome-file-list>
+  <session-config>
+    <session-timeout>30</session-timeout>
+  </session-config>
+  <mime-mapping>
+    <extension>html</extension>
+    <mime-type>text/html</mime-type>
+  </mime-mapping>
+  <mime-mapping>
+    <extension>txt</extension>
+    <mime-type>text/plain</mime-type>
+  </mime-mapping>
+  <description>Deployment descriptor for Core CRM Services</description>
+  <context-param>
+    <param-name>login_page</param-name>
+    <param-value>/Login.jsp?cLogin</param-value>
+  </context-param>
+  <error-page>
+    <exception-type>javax.servlet.ServletException</exception-type>
+    <location>/Error.jsp</location>
+  </error-page>
+  <jsp-config/>
+  <login-config>
+    <auth-method>FORM</auth-method>
+    <form-login-config>
+      <form-login-page>/Login.jsp</form-login-page>
+      <form-error-page>/Error.jsp</form-error-page>
+    </form-login-config>
+  </login-config>
+  <distributable/>
+  <servlet>
+    <description>This is a Front Controller implementation. </description>
+    <display-name>CRMCoreController</display-name>
+    <servlet-name>CRMCoreController</servlet-name>
+    <servlet-class>com.crmservice.core.CRMCoreController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CRMCoreController</servlet-name>
+    <url-pattern>/service.svc/*</url-pattern>
+  </servlet-mapping>
+</web-app>
