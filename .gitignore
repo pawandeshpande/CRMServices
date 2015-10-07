@@ -1,0 +1,7 @@
+/.settings
+/build
+/target
+.project
+out.txt
+.classpath
+/conf
