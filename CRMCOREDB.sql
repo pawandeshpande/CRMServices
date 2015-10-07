@@ -180,11 +180,12 @@ ALTER TABLE CRM_ROLES ADD FOREIGN KEY (TENANT_ID) REFERENCES CRM_COMPANY(ROW_ID)
 -- Create Default company
 SELECT 'Create TestCompany company' AS ' ';
 INSERT INTO CRM_COMPANY(NAME, ADDRESS, PRIMARY_CONTACT,ACTIVE_FLG,DELETED_STATE, 
-CREATED,CREATED_BY, UPDATED, UPDATED_BY) VALUES("TestCompany", "Bangalore", "TestAdmin1", 'Y','N', curdate(),-1,curdate(),-1); 
-
+CREATED,CREATED_BY, UPDATED, UPDATED_BY) VALUES("Super", "Bangalore", "superuser", 'Y','N', curdate(),0,curdate(),0); 
+INSERT INTO CRM_COMPANY(NAME, ADDRESS, PRIMARY_CONTACT,ACTIVE_FLG,DELETED_STATE, 
+CREATED,CREATED_BY, UPDATED, UPDATED_BY) VALUES("TestCompany1", "Bangalore", "TestAdmin1", 'Y','N', curdate(),0,curdate(),0); 
 
 -- Create Default User
-SELECT 'Create Test Admin1 user' AS ' ';
+SELECT 'Create Super User user' AS ' ';
 INSERT INTO CRM_USERS(NAME ,
  USERNAME ,
  PASSWORD ,
@@ -194,7 +195,22 @@ INSERT INTO CRM_USERS(NAME ,
  UPDATED_BY ,
  TENANT_ID, 
  ACTIVE_FLG,
- DELETED_STATE ) VALUES("Test Admin1", "TestAdmin1", password('Pa$$word1'), curdate(), -1, curdate(), -1, 1,'Y','N'); 
+ DELETED_STATE ) VALUES("Super User", "superuser", password('Pa$$word1'), curdate(), 0, curdate(), 0, 1,'Y','N');
+
+
+
+-- Create Default User
+SELECT 'Create Test Admin1  user' AS ' ';
+INSERT INTO CRM_USERS(NAME ,
+ USERNAME ,
+ PASSWORD ,
+ CREATED ,
+ CREATED_BY ,
+ UPDATED ,
+ UPDATED_BY ,
+ TENANT_ID, 
+ ACTIVE_FLG,
+ DELETED_STATE ) VALUES("Test Admin1", "testadmin1", password('Pa$$word1'), curdate(), 0, curdate(), 0, 2,'Y','N');
 
 
 
